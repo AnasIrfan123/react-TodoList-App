@@ -1,38 +1,353 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background: #000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-header{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 40vh;   
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 20px;
+}
+
+.title{
+  font-size: 32px;
+  font-family: 'Courier New', Courier, monospace; 
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #0481d8;
+}
+
+.errMsg{
+  text-align: center; 
+  letter-spacing: 1px;
+  font-style: italic;  
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  color: red; /* Change this to the color you want for error messages */
+  margin-top: 20px;  
+}
+
+.input{
+  font-family: 'Courier New', Courier, monospace; 
+  font-style: italic;
+  cursor: pointer;
+  padding: 15px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: large;
+  background-color: transparent;
   color: white;
+  border-bottom: 2px solid #fff;
+  /* ------------------------- */
+  width: 90%;
+}
+.input:focus{
+  background-color: #262a2f;
+  border-radius: 6px;
+  border-bottom: 3px solid white;
+}
+::placeholder{
+  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.addBtn {
+  padding: 15px;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: 500;
+    font-size: large;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #787c81;
+    border-bottom: 3.5px solid #fff;
+    color: #fff;
+}
+.addBtn:hover{
+  background-color: #bbc1ca;
+  border-bottom-color: rgb(8, 170, 8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.updBtn{
+  padding: 15px;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace; 
+  font-weight: 500;
+  font-size: large;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 3.5px solid #fff;
+  background-color: #787c81;
+  color: #fff;
+}
+.updBtn:hover{
+  background-color: #bbc1ca;
+  border-bottom-color: rgb(8, 170, 8);
+}
+
+.DeltBtn{
+  padding: 15px;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace; 
+  font-weight: 500;
+  font-size: large;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 3.5px solid #fff;
+  background-color: #787c81;
+  color: #fff;
+}
+.DeltBtn:hover{
+  background-color: #bbc1ca;
+  border-bottom-color: rgb(233, 40, 40);
+}
+
+.editBtn{
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: large;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 3.5px solid #fff;
+  color: #fff;
+  background-color: #bbc1ca;
+}
+.editBtn:hover{
+  background-color: #787c81;
+  border-bottom-color: gold;
+}
+
+.deletBtn {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: large;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 3.5px solid #fff;
+  color: #fff;
+  background-color: #bbc1ca;
+}
+.deletBtn:hover{
+  background-color: #787c81;
+  border-bottom-color: rgb(233, 40, 40);
+}
+
+
+
+/* =========================== LIST ================================== */
+
+
+/* ----------------------------------------------------------------- */
+.listContainer {
+  max-height: 50vh; /*50vh Adjusted height to show more items */
+  overflow-y: auto;
+  padding: 10px;
+
+  overflow-x: auto;
+  max-width: 23vw;
+  margin-top: 20px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: max-content; /* Ensures the list does not shrink */
+  
+}
+
+.list li {
+  padding: 10px;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px; /* Adjust according to your need */
+  /* -------------------------- */
+  color: #fff;
+}
+
+.editBtn, .deleteBtn {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.parent{
+  position: fixed;
+  top: 13em;
+  left: 37em;
+  z-index: 9999;
+}
+
+
+
+/* ||||||||||||||||||||||||||||||||||||    BREAK POINTS   ||||||||||||||||||||||||||||||||||||||||||| */
+
+
+@media (max-width: 1440px) {     /* Laptop L - 1440 */
+  .parent{
+    position: fixed;
+    top: 13em;
+    left: 32em;
   }
 }
+
+
+@media (max-width: 1024px) {   /* Laptop - 1024px */
+  .parent{
+    position: fixed;
+    top: 13em;
+    left: 21em;
+  }
+}
+
+@media (max-width: 768px) {   /* Tablet - 768px */
+  .listContainer {
+    overflow-x: auto;
+    max-width: 34vw;
+    margin-top: 18px;
+  } 
+  .parent{
+    position: fixed;
+    top: 13em;
+    left: 13em;
+  }
+  .errMsg{
+    margin-top: 10px;
+  }
+}
+
+
+/* ------------------------------MOBILE--------------------------------------- */
+
+@media (max-width: 425px) {   /* Mobile L - 425px */
+  
+  .App-header {
+   height: 50vh;
+  }
+   .container {
+    gap: 16px;
+   }
+  .input {
+    padding: 10px;
+    width:70%;
+    font-size: medium;
+  }
+  .addBtn{
+    padding: 10px;
+    font-size: medium;
+  }
+  .updBtn {
+    padding: 10px;
+    font-size: medium;
+  }
+  .DeltBtn {
+    padding: 10px;
+    font-size: medium;
+  }
+  /* ----------------------------- */
+  .editBtn {
+    font-size: medium;
+    padding: 7px;
+  }
+  .deletBtn {
+    font-size: medium;
+    padding: 7px;
+  }
+  .listContainer {
+    max-height: 40vh;
+    overflow-y: auto;
+
+    overflow-x: auto;
+    max-width: 70vw;
+  }
+   .parent{
+    position: fixed;
+    top: 15em;
+    left: 4.5em;
+  }
+  
+}
+
+
+/* ------------------------------------ MOBILE  MEDIUM ----------------------- */
+
+@media (max-width: 375px) {  /* Mobile M - 375px */
+  .App-header {
+    height: 52vh;
+   }
+  .container {
+    gap: 13px;
+  }
+  .errMsg {
+    margin-top: 15px;
+  }
+  .listContainer {
+    max-height: 35vh;
+  }
+  .editBtn, .deletBtn {
+    margin-left: 4px;
+    margin-right: 10px;
+  }
+  .parent {
+    position: fixed;
+    top: 13em;
+    left: 3.5em;
+  }
+  .list li {
+    justify-content: flex-start;
+  }
+}
+
+
+/* ------------------------------------ MOBILE  SMALL ----------------------- */
+
+@media (max-width: 320px) {   /* Mobile S - 320px */
+  .input {
+    padding: 6px;
+  }
+  .addBtn{
+    padding: 6px;
+    font-size: small;
+  }
+  .updBtn {
+    padding: 6px;
+    font-size: small;
+  }
+  .DeltBtn {
+    padding: 6px;
+    font-size: small;
+  }
+}
+
